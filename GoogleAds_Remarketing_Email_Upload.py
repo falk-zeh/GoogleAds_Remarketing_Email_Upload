@@ -7,9 +7,6 @@ import sys
 from time import process_time
 
 
-# The "adwords-api.yml" must be altered with your personal credentials beforehand.
-
-
 print('--------------------------------------------------------')
 print('Start: Uploading Excluding Customer List for Remarketing')
 print('--------------------------------------------------------')
