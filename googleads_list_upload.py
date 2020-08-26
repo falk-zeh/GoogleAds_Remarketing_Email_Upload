@@ -19,13 +19,8 @@ def get_customers_email():
     try:
         oracle_connection = cx_Oracle.connect(o_config.connection_string)
         df_ora = pd.read_sql("""
-            select distinct bu_code
-                          , lower(trim(email)) as email
-            from edwh.v_t_person_partner_address
-            where bu_code in(100,710)
-              and member_type_no in(1,2,19,20,24,25)
-              and lower(trim(email)) like ('%@%')
-            """, oracle_connection, parse_dates=True)
+            select distinct * from customers
+                            """, oracle_connection, parse_dates=True)
 
         print(f'Success: Data from Oracle received')
 
@@ -69,7 +64,7 @@ def NormalizeAndSHA256(s):
     return hashlib.sha256(s.strip().lower()).hexdigest()
 
 
-def main(emails, adwordsAudienceId=1056509591):
+def main(emails, adwordsAudienceId=99999999999):
     if emails[0] == 'No data found.':
         sys.exit('No emails found.')
     else:
