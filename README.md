@@ -1,4 +1,4 @@
-# GoogleAds Remarketing Upload
+# GoogleAds Remarketing Email Upload
 
 By default this script connects to Oracle database, creates a pandas dataframe and creates a list of emails.
 
